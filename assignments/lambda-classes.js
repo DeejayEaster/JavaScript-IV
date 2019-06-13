@@ -40,7 +40,7 @@ class Instructor extends Person {
     return `Today we will learn all about ${subject}.`;
   }
   grade(student, subject) {
-    return `${student.name} receives a perfect score on ${subject}'`;
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
 
@@ -58,11 +58,11 @@ class ProjectManager extends Person {
       this.favLang
     } and call onto you to join the legion of ${this.favLang} disciples.`;
   }
-  demo(subject) {
-    return `Today we will learn all about ${subject}.`;
+  standup(channel) {
+    return `${this.name} announces to ${channel}, @channel stand up time!​​​​​`;
   }
-  grade(student, subject) {
-    return `${student.name} receives a perfect score on ${subject}'`;
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
 
@@ -71,11 +71,19 @@ class Student extends Person {
     super(studentAttr);
     this.previousBackground = studentAttr.previousBackground;
     this.className = studentAttr.className;
-    this.favSubject = studentAttr.faveSubject;
+    this.favSubjects = studentAttr.favSubjects;
   }
 
   listsSubjects() {
-    Students.forEach(student => console.log(student.favSubject));
+    return `${this.name} likes ${this.favSubjects}.`;
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun a sprint challenge on ${subject}`;
   }
 
   fellDown() {
@@ -214,4 +222,4 @@ const austin = new ProjectManager({
   catchPhrase: ":eggplant:"
 });
 
-console.log(nisa.dance());
+console.log(nisa.listsSubjects());
